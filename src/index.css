@@ -5,4 +5,50 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    margin-right: 100px;
+}
+
+li {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    padding: 0;
+
+}
+
+li p {
+    flex: 1;
+    background: #eaeaea;
+    display: block;
+    /* align-self: flex-end; */
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.task-number {
+    font-weight: 600;
+    width: 40px;
+    display: block;
+    background: lightblue;
+    /* margin: 0;
+    padding: 0; */
+    display: flex;
+    align-items: center;
+}
+
+.delete-task {
+    /* padding: 10px; */
+    background: red;
+    height: 50px;
+    width: 50px;
+    align-self: center;
+
 }
