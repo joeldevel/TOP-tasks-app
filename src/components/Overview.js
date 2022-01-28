@@ -1,8 +1,13 @@
-function Overview({task}) {
+/*
+ * Receives an array of tasks and returns a list of tags
+*/
+function Overview({tasks}) {
     return (
-        <>
-            <h2>{task.text}</h2>
-        </>
+        <ul>
+            {tasks.map(task => {
+                return <li>{task.text}</li>
+            })}
+        </ul>
     );
 }
 
