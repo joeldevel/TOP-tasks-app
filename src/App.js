@@ -36,6 +36,14 @@ class App extends React.Component {
         });
     };
 
+    deleteTask = (id) => {
+        // console.log('task id ', id);
+        let newTasks = this.state.tasks.filter(task => task.id !== id);
+        this.setState({
+            tasks: newTasks
+        });
+    }
+
     render() {
         const {task, tasks} = this.state;
         return(
@@ -52,7 +60,7 @@ class App extends React.Component {
                 </form>
                 {this.state.tasks.length === 0 ?
                     <h2> There are no tasks</h2> :
-                    <Overview tasks={tasks}/>
+                    <Overview tasks={tasks} deleteTask={this.deleteTask}/>
                 }
             </div>
         );
