@@ -11,12 +11,33 @@ class App extends React.Component {
         };
     }
 
+    handleChange = (e) => {
+        this.setState({
+            task: {
+                text: e.target.value,
+            }
+        });
+    };
+
+    onSubmitTask = (e) => {
+        e.preventDefault();
+        this.setState({
+            tasks: this.state.tasks.concat(this.state.task),
+            task: {text: ''},
+        });
+    };
+
     render() {
         return(
             <div className="app">
                 <h1>Taskinator</h1>
-                <form>
-                    <input type="text" name="task"/>
+                <form onSubmit={this.onSubmitTask}>
+                    <input type="text"
+                           name="task"
+                           onChange={this.handleChange}
+                           value={this.state.task.text}
+                           id="taskInput"
+                           />
                     <button type="submit">Add task</button>
                 </form>
                 {this.state.tasks.length === 0 ?
