@@ -2,18 +2,24 @@ import React from 'react';
 
 import Overview from './components/Overview';
 
+import uniqid from 'uniqid';
+
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            task: {text: ''},
-            tasks: [{text: 'finish The odin project'}],
+            task: {
+                id: uniqid(),
+                text: ''
+            },
+            tasks: [],
         };
     }
 
     handleChange = (e) => {
         this.setState({
             task: {
+                id: this.state.task.id,
                 text: e.target.value,
             }
         });
@@ -23,7 +29,10 @@ class App extends React.Component {
         e.preventDefault();
         this.setState({
             tasks: this.state.tasks.concat(this.state.task),
-            task: {text: ''},
+            task: {
+                id: uniqid(),
+                text: ''
+            },
         });
     };
 
