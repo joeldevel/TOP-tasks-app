@@ -1,7 +1,7 @@
-function Overview() {
+function Overview({task}) {
     return (
         <>
-            <h2>I am an overview component</h2>
+            <h2>{task.text}</h2>
         </>
     );
 }
