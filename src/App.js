@@ -12,7 +12,7 @@ class App extends React.Component {
                 id: uniqid(),
                 text: ''
             },
-            tasks: [],
+            tasks: []
         };
     }
 
@@ -20,19 +20,22 @@ class App extends React.Component {
         this.setState({
             task: {
                 id: this.state.task.id,
-                text: e.target.value,
+                text: e.target.value
             }
         });
     };
 
     onSubmitTask = (e) => {
         e.preventDefault();
+        if(!e.target['task'].value) {
+            return;
+        }
         this.setState({
             tasks: this.state.tasks.concat(this.state.task),
             task: {
                 id: uniqid(),
                 text: ''
-            },
+            }
         });
     };
 
@@ -60,7 +63,8 @@ class App extends React.Component {
                 </form>
                 {this.state.tasks.length === 0 ?
                     <h2> There are no tasks</h2> :
-                    <Overview tasks={tasks} deleteTask={this.deleteTask}/>
+                    <Overview tasks={tasks}
+                              deleteTask={this.deleteTask}/>
                 }
             </div>
         );
