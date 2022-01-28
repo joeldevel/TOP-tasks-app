@@ -28,6 +28,7 @@ class App extends React.Component {
     };
 
     render() {
+        const {task, tasks} = this.state;
         return(
             <div className="app">
                 <h1>Taskinator</h1>
@@ -35,14 +36,14 @@ class App extends React.Component {
                     <input type="text"
                            name="task"
                            onChange={this.handleChange}
-                           value={this.state.task.text}
+                           value={task.text}
                            id="taskInput"
                            />
                     <button type="submit">Add task</button>
                 </form>
                 {this.state.tasks.length === 0 ?
                     <h2> There are no tasks</h2> :
-                    this.state.tasks.map(task => <Overview task={task}/>)
+                    <Overview tasks={tasks}/>
                 }
             </div>
         );
