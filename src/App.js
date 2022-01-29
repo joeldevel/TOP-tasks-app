@@ -47,6 +47,17 @@ class App extends React.Component {
         });
     }
 
+    updateTask = (id, newText) => {
+        console.log('id,', id, 'newText: ', newText);
+        let newTasks = this.state.tasks.map(task =>{
+            if(task.id === id) {
+                return { id: task.id, text: newText}
+            } else {
+                return task
+            }
+        });
+    }
+
     render() {
         const {task, tasks} = this.state;
         return(
@@ -64,7 +75,8 @@ class App extends React.Component {
                 {this.state.tasks.length === 0 ?
                     <h2> There are no tasks</h2> :
                     <Overview tasks={tasks}
-                              deleteTask={this.deleteTask}/>
+                              deleteTask={this.deleteTask}
+                              updateTask={this.updateTask}/>
                 }
             </div>
         );

@@ -52,3 +52,10 @@ li p {
     align-self: center;
 
 }
+
+.edit-task {
+    background: aqua;
+    height: 50px;
+    width: 50px;
+    align-self: center;
+}
