@@ -45,10 +45,10 @@ class App extends React.Component {
         this.setState({
             tasks: newTasks
         });
-    }
+    };
 
     updateTask = (id, newText) => {
-        console.log('id,', id, 'newText: ', newText);
+        // console.log('id,', id, 'newText: ', newText);
         let newTasks = this.state.tasks.map(task =>{
             if(task.id === id) {
                 return { id: task.id, text: newText}
@@ -56,7 +56,7 @@ class App extends React.Component {
                 return task
             }
         });
-    }
+    };
 
     render() {
         const {task, tasks} = this.state;

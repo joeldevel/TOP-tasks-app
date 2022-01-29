@@ -30,8 +30,8 @@ class Task extends React.Component {
         this.setState({
             newText: this.state.newText,
             isReadOnly: true
-        })
-    }
+        });
+    };
 
     render() {
         return (
